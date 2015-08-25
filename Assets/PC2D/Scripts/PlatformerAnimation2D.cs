@@ -49,12 +49,10 @@ namespace PC2D
                 }
 
                 Vector3 rotateDir = _currentFacingLeft ? Vector3.forward : Vector3.back;
-                visualChild.transform.Rotate(rotateDir, jumpRotationSpeed * Time.deltaTime);
             }
             else
             {
                 _isJumping = false;
-                visualChild.transform.rotation = Quaternion.identity;
 
                 if (_motor.motorState == PlatformerMotor2D.MotorState.Falling ||
                                  _motor.motorState == PlatformerMotor2D.MotorState.FallingFast)
