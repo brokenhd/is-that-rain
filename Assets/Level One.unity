@@ -125,7 +125,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -178278775
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0f90f02beb0397b4d8e50fefef132d46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -145,6 +145,20 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 191648, guid: d6575051e14f3cf41be1fb9a33765fd0, type: 2}
   m_PrefabInternal: {fileID: 2051933238}
+--- !u!114 &598278858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598278852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad2a8f886636d648bbeec5bfbefd8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 104068, guid: 5151350d07e446b46a6e6770be74ec13, type: 2}
+  distance: 10
+  speed: 10
 --- !u!1 &701287731
 GameObject:
   m_ObjectHideFlags: 0
