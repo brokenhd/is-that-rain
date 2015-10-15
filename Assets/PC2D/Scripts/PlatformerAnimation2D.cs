@@ -25,7 +25,7 @@ namespace PC2D
             _animator = visualChild.GetComponent<Animator>();
             _animator.Play("Idle");
 
-            _motor.onJump += SetCurrentFacingLeft;
+            // _motor.onJump += SetCurrentFacingLeft;
         }
 
         // Update is called once per frame
@@ -48,7 +48,7 @@ namespace PC2D
                     _currentFacingLeft = false;
                 }
 
-                Vector3 rotateDir = _currentFacingLeft ? Vector3.forward : Vector3.back;
+                // Vector3 rotateDir = _currentFacingLeft ? Vector3.forward : Vector3.back;
             }
             else
             {
@@ -101,13 +101,13 @@ namespace PC2D
 
             if (valueCheck >= 0.1f)
             {
-                visualChild.transform.localScale = Vector3.one;
+                //visualChild.transform.localScale = Vector3.one;
             }
             else if (valueCheck <= -0.1f)
             {
-                Vector3 newScale = Vector3.one;
-                newScale.x = -1;
-                visualChild.transform.localScale = newScale;
+                //Vector3 newScale = Vector3.one;
+                //newScale.x = -1;
+                //visualChild.transform.localScale = newScale;
             }
         }
 
