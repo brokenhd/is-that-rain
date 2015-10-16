@@ -13,8 +13,6 @@ public class Weapon : MonoBehaviour {
 	float timeToFire = 0;
 	Transform firePoint;
 	float timeToSpawnEffect = 0;
-
-	// Required Scripts
 	MoveTracer moveTracer;
 
 	void Awake () {
