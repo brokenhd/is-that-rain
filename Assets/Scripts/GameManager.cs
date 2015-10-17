@@ -25,10 +25,12 @@ public class GameManager : MonoBehaviour {
 	public static void KillPlayer (Player player) {
 		Destroy (player.gameObject);
 
-
-		// Later turn this method into a menu
+		// TODO: Later turn this method into a menu
 		gm.StartCoroutine(gm.RespawnPlayer());
 	}
 
-
+	public static void KillEnemy (Enemy enemy) {
+		enemy.GibEnemy();
+		Destroy (enemy.gameObject);
+	}
 }

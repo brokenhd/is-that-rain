@@ -16,7 +16,8 @@ GameObject:
   - 95: {fileID: 9513032}
   - 114: {fileID: 11483394}
   - 114: {fileID: 11422638}
-  m_Layer: 0
+  - 114: {fileID: 11418888}
+  m_Layer: 11
   m_Name: Enemy_Walker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,12 +104,27 @@ MonoBehaviour:
     mask:
       serializedVersion: 2
       m_Bits: 4294967295
-    useGraphRaycasting: 1
+    useGraphRaycasting: 0
   traversableTags: -1
   traversableTagsCompatibility:
     tagsChange: -1
     tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &11418888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e430097d409c4454385162b8496ee879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStats:
+    MaxHealth: 100
+    CurrentHealth: 100
+  gibEffect: {fileID: 494552, guid: 96f99a87022c9244ea7ba176bedb7536, type: 2}
 --- !u!114 &11422638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc6af8e891aad7e4eb71dc04fa6fbdf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 477368, guid: 2524474d9de655846b004ef3d293b335, type: 2}
   updateRate: 2
   speed: 250
   fMode: 0

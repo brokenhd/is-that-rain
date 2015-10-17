@@ -4,11 +4,12 @@ using System.Collections;
 public class Weapon : MonoBehaviour {
 
 	public float fireRate = 0;
-	public float Damage = 10;
+	public int damage = 10;
 	public LayerMask whatToHit;
 	public Transform BulletTracerPrefab;
 	public float effectSpawnRate = 10;
 	public Transform MuzzleFlashPrefab;
+	public Transform HitPrefab;
 
 	float timeToFire = 0;
 	Transform firePoint;
@@ -43,19 +44,50 @@ public class Weapon : MonoBehaviour {
 		Vector2 firePointPosition = new Vector2 (firePoint.position.x, firePoint.position.y);
 		RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, whatToHit);
 
-		if (Time.time >= timeToSpawnEffect) {
-			Effect();
-			timeToSpawnEffect = Time.time + 1/effectSpawnRate;
+		if (hit.collider != null) {
+			// TODO: Kill things if they hit floor
+
+			Enemy enemy = hit.collider.GetComponent<Enemy>();
+			if (enemy != null) {
+				enemy.DamageEnemy(damage);
+				Debug.Log("hit: " + hit.collider.name + " for: " + damage);
+			}
 		}
 
-		if (hit.collider != null) {
-			//if(hit.collider.name == "Floor") moveTracer.KillTracer();
-			Debug.Log("hit: " + hit.collider.name + " for: " + Damage);
+		if (Time.time >= timeToSpawnEffect) {
+			Vector3 hitPos;
+			Vector3 hitNormal;
+
+			if (hit.collider == null) {
+				hitPos = (mousePosition - firePointPosition) * 30;
+				hitNormal = new Vector3 (9999,9999,9999);
+			}
+			else {
+				hitPos = hit.point;
+				hitNormal = hit.normal;
+			}
+
+			Effect(hitPos, hitNormal);
+			timeToSpawnEffect = Time.time + 1/effectSpawnRate;
 		}
 	}
 
-	void Effect () {
-		Instantiate (BulletTracerPrefab, firePoint.position, firePoint.rotation);
+	void Effect (Vector3 hitPos, Vector3 hitNormal) {
+		Transform trail = Instantiate (BulletTracerPrefab, firePoint.position, firePoint.rotation) as Transform;
+		LineRenderer lr = trail.GetComponent<LineRenderer>();
+
+		if (lr != null) {
+			lr.SetPosition (0, firePoint.position);
+			lr.SetPosition (1, hitPos);
+		}
+
+		Destroy (trail.gameObject, 0.1f);
+
+		if (hitNormal != new Vector3 (9999,9999,9999)) {
+			Transform hitParticle = Instantiate(HitPrefab, hitPos, Quaternion.FromToRotation(Vector3.right, hitNormal)) as Transform;
+			Destroy (hitParticle.gameObject, 0.2f);
+		}
+
 		Transform clone = Instantiate (MuzzleFlashPrefab, firePoint.position, firePoint.rotation) as Transform;
 		clone.parent = firePoint;
 		float size = Random.Range (0.6f, 0.9f);

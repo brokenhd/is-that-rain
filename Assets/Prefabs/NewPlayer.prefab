@@ -49,7 +49,7 @@ GameObject:
   - 114: {fileID: 11416814}
   m_Layer: 0
   m_Name: NewPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.11399984, y: 1.04100001, z: 0}
+  m_LocalPosition: {x: -5.11399984, y: .0790000036, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477368}
@@ -216,13 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0
-  Damage: 10
+  damage: 10
   whatToHit:
     serializedVersion: 2
-    m_Bits: 4294966267
+    m_Bits: 4294966216
   BulletTracerPrefab: {fileID: 454728, guid: a9bbc626705b1d540ba082778c536841, type: 2}
   effectSpawnRate: 10
   MuzzleFlashPrefab: {fileID: 445616, guid: 2759d2a2c528c3341bc2c56b955f74bd, type: 2}
+  HitPrefab: {fileID: 434936, guid: 569dfe37666b0ca41ab68ef425261450, type: 2}
 --- !u!114 &11463618
 MonoBehaviour:
   m_ObjectHideFlags: 1
