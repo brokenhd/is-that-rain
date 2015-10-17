@@ -5,7 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - GM
-  - Player
+  - WPPathfinder
+  - Waypoint
+  - Obst
+  - Enemy
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX
